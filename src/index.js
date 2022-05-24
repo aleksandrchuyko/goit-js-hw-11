@@ -1,5 +1,11 @@
 import './sass/main.scss';
 
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
+
+import Notiflix from 'notiflix';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
 import {fetchPhotos} from "./js/fetchPhotos.js";
 
 const refs = {
@@ -51,7 +57,14 @@ refs.searchForm.addEventListener('submit', (e) => {
     clearGallery();
     const searchQuery = e.currentTarget.elements["searchQuery"].value.trim();
     params.q = searchQuery;
-    fetchPhotos(params).then(response => { renderGallery(response.data.hits) });
+    fetchPhotos(params).then(response => {
+        if (response.data.hits.length) {
+            renderGallery(response.data.hits);
+        }
+        else {
+            Notiflix.Notify.info('Sorry, there are no images matching your search query. Please try again.');
+        }
+    });
 });
 
 refs.loadMoreBtn.addEventListener('click', (e) => {
