@@ -38,7 +38,7 @@ function clearGallery() {
 function renderGallery(photosArr) {
     const cards = photosArr.reduce((acc, card) => {
         return acc += `<div class="photo-card">
-        <img src="" alt="${card.tags}" loading="lazy" />
+        <img src="${card.webformatURL}" alt="${card.tags}" loading="lazy" />
         <div class="info">
             <p class="info-item">
             <b>Likes</b>${card.likes}
