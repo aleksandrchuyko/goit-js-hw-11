@@ -66,6 +66,12 @@ function renderGallery(photosArr) {
     if ((params.page * params.per_page >= totalHits) && (params.page > 1)) {
         Notiflix.Notify.info(`We're sorry, but you've reached the end of search results.`);
     }
+
+    // const { height: cardHeight } = document.querySelector(".gallery").firstElementChild.getBoundingClientRect();
+    // window.scrollBy({
+    //     top: cardHeight * 2,
+    //     behavior: "smooth",
+    // });
 }
 
 clearGallery();
@@ -82,7 +88,7 @@ refs.searchForm.addEventListener('submit', (e) => {
             renderGallery(response.data.hits);
         }
         else {
-            Notiflix.Notify.info('Sorry, there are no images matching your search query. Please try again.');
+            Notiflix.Notify.failure('Sorry, there are no images matching your search query. Please try again.');
         }
     });
 });
