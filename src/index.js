@@ -79,8 +79,10 @@ clearGallery();
 refs.searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
     clearGallery();
+    
     const searchQuery = e.currentTarget.elements["searchQuery"].value.trim();
     params.q = searchQuery;
+
     fetchPhotos(params).then(response => {
         totalHits = response.data.totalHits;
         if (totalHits) {
@@ -95,6 +97,5 @@ refs.searchForm.addEventListener('submit', (e) => {
 
 refs.loadMoreBtn.addEventListener('click', (e) => {
     params.page += 1;
-    
     fetchPhotos(params).then(response => { renderGallery(response.data.hits) });
 });
