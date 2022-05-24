@@ -84,7 +84,7 @@ refs.searchForm.addEventListener('submit', (e) => {
     fetchPhotos(params).then(response => {
         totalHits = response.data.totalHits;
         if (totalHits) {
-            Notiflix.Notify.info(`Hooray! We found ${totalHits} images.`);
+            Notiflix.Notify.success(`Hooray! We found ${totalHits} images.`);
             renderGallery(response.data.hits);
         }
         else {
