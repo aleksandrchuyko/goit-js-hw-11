@@ -49,6 +49,7 @@ function renderGallery(photosArr) {
         </div>
         </div>`;
     }, "");
+    
     refs.gallery.insertAdjacentHTML("beforeend", cards);
 }
 
