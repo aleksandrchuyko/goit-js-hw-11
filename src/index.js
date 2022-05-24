@@ -95,5 +95,6 @@ refs.searchForm.addEventListener('submit', (e) => {
 
 refs.loadMoreBtn.addEventListener('click', (e) => {
     params.page += 1;
+    
     fetchPhotos(params).then(response => { renderGallery(response.data.hits) });
 });
