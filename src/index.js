@@ -49,17 +49,19 @@ function renderGallery(photosArr) {
         </div>
         </div>`;
     }, "");
-    
+
     refs.gallery.insertAdjacentHTML("beforeend", cards);
 }
 
 refs.searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
     clearGallery();
+    params.page = 1;
     const searchQuery = e.currentTarget.elements["searchQuery"].value.trim();
     params.q = searchQuery;
     fetchPhotos(params).then(response => {
         if (response.data.hits.length) {
+            Notiflix.Notify.info(`Hooray! We found ${response.data.totalHits} images.`);
             renderGallery(response.data.hits);
         }
         else {
