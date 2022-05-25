@@ -32,7 +32,6 @@ function clearGallery() {
     params.page = 1;
     totalHits = 0;
     refs.loadMoreBtn.classList.add('is-hidden');
-    
 }
 
 function renderGallery(photosArr) {
