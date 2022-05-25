@@ -3,14 +3,28 @@
   --animation-duration: 250ms;
 }
 
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden
+}
+
+
 .search-form {
+  width: 100%;
+  height: 40px;
   padding: 5px 0;
   background-color: rgb(62, 62, 238);
   display: flex;
-
+position: fixed;
+z-index: 1;
   justify-content: center;
   & button {
     margin-left: 5px;
+    border-radius: 3px;
+  }
+  & input {
+    border-radius: 3px;
   }
 }
 
@@ -23,7 +37,7 @@
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
-  padding: 10px 0;
+  padding: 50px 0;
 }
 
 .photo-card {
@@ -58,12 +72,11 @@
 .gallery a {
   display: block;
   text-decoration: none;
-  height: 100%;
 }
 
 .load-more {
   display: block;
-  margin: 10px auto;
+  margin: 0 auto 10px auto;
   padding: 10px;
   color: antiquewhite;
   background-color: rgb(62, 62, 238);
